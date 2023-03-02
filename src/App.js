@@ -1,4 +1,3 @@
-import './App.css';
 import theme from './theme/theme';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/GlobalStyle';
@@ -21,7 +20,10 @@ function App() {
       <GlobalStyle currentTheme={currentTheme} />
       <Container>
         <Calculator>
-          <Head currentTheme={currentTheme} handleThemeChange={handleThemeChange} />
+          <Head
+            currentTheme={currentTheme}
+            handleThemeChange={handleThemeChange}
+          />
           <Display currentTheme={currentTheme} />
           <Keyboard currentTheme={currentTheme} />
         </Calculator>
