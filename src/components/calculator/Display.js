@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Background = styled.div`
   height: 128px;
   width: 100%;
-  background-color: ${(props) => props.theme.primary.displayColor};
+  background-color: ${(props) => props.theme[props.themeKey].displayColor};
   border-radius: 10px;
   margin-bottom: 24px;
 `;
@@ -15,9 +15,9 @@ const Value = styled.div`
   padding-right: 32px;
 `;
 
-const Display = () => {
+const Display = (props) => {
   return (
-    <Background>
+    <Background themeKey={props.currentTheme}>
       <Value>0</Value>
     </Background>
   );
