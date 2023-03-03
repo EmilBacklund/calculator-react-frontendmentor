@@ -8,17 +8,30 @@ const Background = styled.div`
   margin-bottom: 24px;
 `;
 
-const Value = styled.div`
-  text-align: right;
-  line-height: 128px;
-  font-size: 56px;
+const CurrentOperand = styled.div`
+  font-size: 2.5rem;
+`;
+
+const PreviousOperand = styled.div`
+  font-size: 1.5rem;
+`;
+
+const OperandContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100%;
   padding-right: 32px;
 `;
 
 const Display = (props) => {
   return (
     <Background themeKey={props.currentTheme}>
-      <Value>0</Value>
+      <OperandContainer>
+        <PreviousOperand>{props.previousOperand}</PreviousOperand>
+        <CurrentOperand>{props.currentOperand}</CurrentOperand>
+      </OperandContainer>
     </Background>
   );
 };

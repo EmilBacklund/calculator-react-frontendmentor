@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import styles from './Keyboard.module.css';
+import { ACTIONS } from '../../App';
 
 const KeyboardBackground = styled.div`
   background-color: ${(props) => props.theme[props.themeKey].calculatorColor};
@@ -84,11 +85,13 @@ const EqualSign = styled.div`
   }
 `;
 
-const Keyboard = (props) => {
+const Keyboard = (props, { dispatch, digit }) => {
   return (
     <KeyboardBackground themeKey={props.currentTheme}>
       <div className={styles.buttonContainer}>
-        <Button themeKey={props.currentTheme}>7</Button>
+        <Button themeKey={props.currentTheme} onClick={console.log(EventTarget.textContent)}>
+          7
+        </Button>
         <Button themeKey={props.currentTheme}>8</Button>
         <Button themeKey={props.currentTheme}>9</Button>
         <Delete themeKey={props.currentTheme}>DEL</Delete>

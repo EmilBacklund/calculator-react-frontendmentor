@@ -6,10 +6,29 @@ import Calculator from './components/calculator/Calculator';
 import Head from './components/calculator/Head';
 import Display from './components/calculator/Display';
 import Keyboard from './components/calculator/Keyboard';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
+
+export const ACTIONS = {
+  ADD_DIGIT: 'add-digit',
+  CHOOSE_OPERATION: 'choose-operation',
+  RESET: 'reset',
+  DELETE_DIGIT: 'delete-digit',
+  EVALUATE: 'evaluate',
+};
+
+function reducer(state, { type, payload }) {
+  switch (type) {
+    case ACTIONS.ADD_DIGIT:
+      return {
+        ...state,
+        currentOperand: `${state.currentOperand || ''}${payload.digit}`,
+      };
+  }
+}
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState('primary');
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {});
 
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
@@ -20,12 +39,14 @@ function App() {
       <GlobalStyle currentTheme={currentTheme} />
       <Container>
         <Calculator>
-          <Head
+          <Head currentTheme={currentTheme} handleThemeChange={handleThemeChange} />
+          <Display
             currentTheme={currentTheme}
-            handleThemeChange={handleThemeChange}
+            previousOperand={previousOperand}
+            currentOperand={currentOperand}
+            operation={operation}
           />
-          <Display currentTheme={currentTheme} />
-          <Keyboard currentTheme={currentTheme} />
+          <Keyboard currentTheme={currentTheme} dispatch={dispatch} />
         </Calculator>
       </Container>
     </ThemeProvider>
