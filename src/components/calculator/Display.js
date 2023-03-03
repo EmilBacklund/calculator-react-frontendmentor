@@ -29,7 +29,7 @@ const Display = (props) => {
   return (
     <Background themeKey={props.currentTheme}>
       <OperandContainer>
-        <PreviousOperand>{props.previousOperand}</PreviousOperand>
+        <PreviousOperand>{props.previousOperand} {props.operation}</PreviousOperand>
         <CurrentOperand>{props.currentOperand}</CurrentOperand>
       </OperandContainer>
     </Background>
