@@ -11,6 +11,7 @@ const KeyboardBackground = styled.div`
   flex-direction: column;
   height: 420px;
   justify-content: space-between;
+  user-select: none;
 
   @media (min-width: 609px) {
     padding: 32px 30px;
@@ -21,7 +22,8 @@ const KeyboardBackground = styled.div`
 const Button = styled.div`
   height: 64px;
   width: 100%;
-  background-color: ${(props) => props.theme[props.themeKey].primaryBtn.buttonColor};
+  background-color: ${(props) =>
+    props.theme[props.themeKey].primaryBtn.buttonColor};
   box-shadow: inset 0px -4px 0px ${(props) => props.theme[props.themeKey].primaryBtn.buttonShadowColor};
   border-radius: 5px;
   color: ${(props) => props.theme[props.themeKey].primaryBtn.buttonTextColor};
@@ -32,7 +34,8 @@ const Button = styled.div`
   &:hover {
     transition: all;
     transition-duration: 250ms;
-    background-color: ${(props) => props.theme[props.themeKey].primaryBtn.buttonHoverColor};
+    background-color: ${(props) =>
+      props.theme[props.themeKey].primaryBtn.buttonHoverColor};
   }
 
   @media (min-width: 609px) {
@@ -45,7 +48,8 @@ const Button = styled.div`
 const Delete = styled.div`
   height: 64px;
   width: 100%;
-  background-color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonColor};
+  background-color: ${(props) =>
+    props.theme[props.themeKey].secondaryBtn.buttonColor};
   box-shadow: inset 0px -4px 0px ${(props) => props.theme[props.themeKey].secondaryBtn.buttonShadowColor};
   border-radius: 5px;
   color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonTextColor};
@@ -56,7 +60,8 @@ const Delete = styled.div`
   &:hover {
     transition: all;
     transition-duration: 250ms;
-    background-color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonHoverColor};
+    background-color: ${(props) =>
+      props.theme[props.themeKey].secondaryBtn.buttonHoverColor};
   }
 
   @media (min-width: 609px) {
@@ -72,7 +77,8 @@ const Reset = styled.div`
   height: 64px;
   color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonTextColor};
   box-shadow: inset 0px -4px 0px ${(props) => props.theme[props.themeKey].secondaryBtn.buttonShadowColor};
-  background-color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonColor};
+  background-color: ${(props) =>
+    props.theme[props.themeKey].secondaryBtn.buttonColor};
   border-radius: 5px;
   line-height: 64px;
   font-size: 20px;
@@ -81,7 +87,8 @@ const Reset = styled.div`
   &:hover {
     transition: all;
     transition-duration: 250ms;
-    background-color: ${(props) => props.theme[props.themeKey].secondaryBtn.buttonHoverColor};
+    background-color: ${(props) =>
+      props.theme[props.themeKey].secondaryBtn.buttonHoverColor};
   }
 
   @media (min-width: 609px) {
@@ -96,7 +103,8 @@ const EqualSign = styled.div`
   height: 64px;
   color: ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonTextColor};
   box-shadow: inset 0px -4px 0px ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonShadowColor};
-  background-color: ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonColor};
+  background-color: ${(props) =>
+    props.theme[props.themeKey].tertiaryBtn.buttonColor};
   border-radius: 5px;
   line-height: 64px;
   font-size: 20px;
@@ -105,7 +113,8 @@ const EqualSign = styled.div`
   &:hover {
     transition: all;
     transition-duration: 250ms;
-    background-color: ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonHoverColor};
+    background-color: ${(props) =>
+      props.theme[props.themeKey].tertiaryBtn.buttonHoverColor};
   }
 
   @media (min-width: 609px) {
@@ -125,19 +134,25 @@ const Keyboard = ({ dispatch, digit, operation, ...props }) => {
       <div className={styles.buttonContainer}>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '7' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '7' } })
+          }
         >
           7
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '8' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '8' } })
+          }
         >
           8
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '9' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '9' } })
+          }
         >
           9
         </Button>
@@ -151,25 +166,36 @@ const Keyboard = ({ dispatch, digit, operation, ...props }) => {
       <div className={styles.buttonContainer}>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '4' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '4' } })
+          }
         >
           4
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '5' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '5' } })
+          }
         >
           5
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '6' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '6' } })
+          }
         >
           6
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation: '+' } })}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.CHOOSE_OPERATION,
+              payload: { operation: '+' },
+            })
+          }
         >
           +
         </Button>
@@ -177,25 +203,36 @@ const Keyboard = ({ dispatch, digit, operation, ...props }) => {
       <div className={styles.buttonContainer}>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '1' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '1' } })
+          }
         >
           1
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '2' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '2' } })
+          }
         >
           2
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '3' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '3' } })
+          }
         >
           3
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation: '-' } })}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.CHOOSE_OPERATION,
+              payload: { operation: '-' },
+            })
+          }
         >
           -
         </Button>
@@ -203,31 +240,48 @@ const Keyboard = ({ dispatch, digit, operation, ...props }) => {
       <div className={styles.buttonContainer}>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '.' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '.' } })
+          }
         >
           .
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '0' } })}
+          onClick={() =>
+            dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: '0' } })
+          }
         >
           0
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation: '/' } })}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.CHOOSE_OPERATION,
+              payload: { operation: '/' },
+            })
+          }
         >
           /
         </Button>
         <Button
           themeKey={props.currentTheme}
-          onClick={() => dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation: 'x' } })}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.CHOOSE_OPERATION,
+              payload: { operation: 'x' },
+            })
+          }
         >
           x
         </Button>
       </div>
       <div className={styles.buttonContainer}>
-        <Reset themeKey={props.currentTheme} onClick={() => dispatch({ type: ACTIONS.RESET })}>
+        <Reset
+          themeKey={props.currentTheme}
+          onClick={() => dispatch({ type: ACTIONS.RESET })}
+        >
           RESET
         </Reset>
         <EqualSign
