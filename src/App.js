@@ -110,6 +110,10 @@ function reducer(state, { type, payload }) {
         operation: null,
         currentOperand: evaluate(state),
       };
+
+    default:
+      console.error('Invalid operation');
+      break;
   }
 }
 
@@ -135,6 +139,9 @@ function evaluate({ currentOperand, previousOperand, operation }) {
       break;
     case '/':
       computation = prev / current;
+      break;
+    default:
+      console.error('Invalid operation');
       break;
   }
 
