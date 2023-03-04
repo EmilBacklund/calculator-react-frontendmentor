@@ -11,8 +11,6 @@ const KeyboardBackground = styled.div`
   flex-direction: column;
   height: 420px;
   justify-content: space-between;
-  user-select: none;
-  touch-action: manipulation;
 
   @media (min-width: 609px) {
     padding: 32px 30px;

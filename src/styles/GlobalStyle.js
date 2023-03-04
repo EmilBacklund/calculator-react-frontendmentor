@@ -13,6 +13,8 @@ body {
     background-color: ${(props) => props.theme[props.currentTheme].primaryBg};
     color: ${(props) => props.theme[props.currentTheme].displayHeaderTextColor};
     font-family: 'League Spartan', sans-serif;
+    user-select: none;
+    touch-action: manipulation;
 }
 `;
 

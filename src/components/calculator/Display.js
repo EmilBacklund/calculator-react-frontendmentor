@@ -6,6 +6,7 @@ const Background = styled.div`
   background-color: ${(props) => props.theme[props.themeKey].displayColor};
   border-radius: 10px;
   margin-bottom: 24px;
+  user-select: all;
 
   @media (min-width: 609px) {
     height: 128px;
