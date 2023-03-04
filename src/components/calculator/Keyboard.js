@@ -12,6 +12,7 @@ const KeyboardBackground = styled.div`
   height: 420px;
   justify-content: space-between;
   user-select: none;
+  touch-action: manipulation;
 
   @media (min-width: 609px) {
     padding: 32px 30px;
