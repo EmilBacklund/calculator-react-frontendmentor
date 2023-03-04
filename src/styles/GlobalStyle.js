@@ -14,7 +14,7 @@ body {
     color: ${(props) => props.theme[props.currentTheme].displayHeaderTextColor};
     font-family: 'League Spartan', sans-serif;
     user-select: none;
-    touch-action: manipulation;
+    touch-action: none;
 }
 `;
 
