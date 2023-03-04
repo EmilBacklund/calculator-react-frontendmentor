@@ -7,7 +7,6 @@ const Calculator = styled.div`
   left: 0;
   right: 0;
   transform: translateY(-50%);
-  margin-top: 32px;
 `;
 
 export default Calculator;
