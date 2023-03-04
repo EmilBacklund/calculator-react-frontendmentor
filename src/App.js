@@ -29,9 +29,19 @@ function reducer(state, { type, payload }) {
       if (payload.digit === '0' && state.currentOperand === '0') {
         return state;
       }
-      if (payload.digit === '.' && state.currentOperand.includes('.')) {
+
+      if (
+        payload.digit === '.' &&
+        state.currentOperand != null &&
+        state.currentOperand.includes('.')
+      ) {
         return state;
       }
+
+      if (state.currentOperand != null && state.currentOperand.length >= 12) {
+        return state;
+      }
+
       return {
         ...state,
         currentOperand: `${state.currentOperand || ''}${payload.digit}`,
@@ -65,6 +75,25 @@ function reducer(state, { type, payload }) {
       };
     case ACTIONS.RESET:
       return {};
+    case ACTIONS.DELETE_DIGIT:
+      if (state.overwrite) {
+        return {
+          ...state,
+          overwrite: false,
+          currentOperand: null,
+        };
+      }
+      if (state.currentOperand == null) {
+        return state;
+      }
+      if (state.currentOperand.length === 1) {
+        return { ...state, currentOperand: null };
+      }
+
+      return {
+        ...state,
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
     case ACTIONS.EVALUATE:
       if (
         state.operation == null ||
@@ -112,6 +141,24 @@ function evaluate({ currentOperand, previousOperand, operation }) {
   return computation.toString();
 }
 
+const INTEGER_FORMATTER = new Intl.NumberFormat('en-us', {
+  maximumFractionDigits: 0,
+});
+
+function formatOperand(operand) {
+  if (operand == null) {
+    return;
+  }
+
+  const [integer, decimal] = operand.split('.');
+
+  if (decimal == null) {
+    return INTEGER_FORMATTER.format(integer);
+  }
+
+  return `${INTEGER_FORMATTER.format(integer)}.${decimal}`;
+}
+
 function App(props) {
   const [currentTheme, setCurrentTheme] = useState('primary');
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(reducer, {});
@@ -128,8 +175,8 @@ function App(props) {
           <Head currentTheme={currentTheme} handleThemeChange={handleThemeChange} />
           <Display
             currentTheme={currentTheme}
-            previousOperand={previousOperand}
-            currentOperand={currentOperand}
+            previousOperand={formatOperand(previousOperand)}
+            currentOperand={formatOperand(currentOperand)}
             operation={operation}
           />
           <Keyboard currentTheme={currentTheme} dispatch={dispatch} />
