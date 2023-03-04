@@ -6,7 +6,6 @@ const KeyboardBackground = styled.div`
   background-color: ${(props) => props.theme[props.themeKey].calculatorColor};
   padding: 24px;
   border-radius: 10px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 420px;
@@ -29,6 +28,7 @@ const Button = styled.div`
   line-height: 64px;
   font-size: 32px;
   text-align: center;
+  cursor: pointer;
 
   &:hover {
     transition: all;
