@@ -37,13 +37,15 @@ const RadioContainer = styled.div`
   align-items: center;
   font-size: 12px;
   gap: 26px;
+  letter-spacing: 1px;
 `;
 
 const RadioButton = styled.div`
   position: absolute;
   width: 16px;
   height: 16px;
-  background-color: ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonColor};
+  background-color: ${(props) =>
+    props.theme[props.themeKey].tertiaryBtn.buttonColor};
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
@@ -53,7 +55,8 @@ const RadioButton = styled.div`
   transition-duration: 300ms;
 
   &:hover {
-    background-color: ${(props) => props.theme[props.themeKey].tertiaryBtn.buttonHoverColor};
+    background-color: ${(props) =>
+      props.theme[props.themeKey].tertiaryBtn.buttonHoverColor};
   }
 `;
 
@@ -91,7 +94,7 @@ const Head = (props) => {
         </RadioNumberIndicator>
       </RadioNumberContainer>
       <StyledHead themeKey={props.currentTheme}>
-        calc
+        <span className={styles.calc}>calc</span>
         <RadioContainer>
           THEME
           <RadioBackground themeKey={props.currentTheme}>
