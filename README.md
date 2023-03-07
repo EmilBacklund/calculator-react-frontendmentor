@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/singlepage-developer-portfolio-YOHPIS-N6w)
-- Live Site URL: [backlundstudio.com](https://preeminent-fudge-00a560.netlify.app/)
+- Solution URL: [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/calculatorreactapp-with-styledcomponents-r3-yuQczx6)
+- Live Site URL: [https://preeminent-fudge-00a560.netlify.app/](https://preeminent-fudge-00a560.netlify.app/)
 
 ## My process:
 
